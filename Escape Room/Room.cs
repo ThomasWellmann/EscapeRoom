@@ -16,7 +16,7 @@ namespace Escape_Room
             room = new char[roomLength, roomHeight];
             
             for (int x = 0; x < roomLength; x++) 
-                room[x, 0] = '▄';
+                room[x, 0] = '▄'; 
             
             for (int y = 1; y < roomHeight - 1; y++)
             {
