@@ -36,8 +36,8 @@ namespace Escape_Room
         public static void PrintRoom() // Raum Array Printen
         {
             Lobby.SetColorsToDefault();
-            Lobby.sideBorderToRoom = Lobby.windowLength / 2 - roomLength / 2;
-            Console.SetCursorPosition(Lobby.sideBorderToRoom, Lobby.topBorderToRoom);
+            Lobby.SideBorderToRoom = Lobby.WindowLength / 2 - roomLength / 2;
+            Console.SetCursorPosition(Lobby.SideBorderToRoom, Lobby.TopBorderToRoom);
 
             for (int x = 0; x < roomLength; x++)
                 Console.Write(room[x, 0]);
@@ -46,7 +46,7 @@ namespace Escape_Room
             
             for (int y = 1; y < roomHeight - 1; y++)
             {
-                Console.SetCursorPosition(Lobby.sideBorderToRoom, y + Lobby.topBorderToRoom);
+                Console.SetCursorPosition(Lobby.SideBorderToRoom, y + Lobby.TopBorderToRoom);
 
                 for (int x = 0; x < roomLength; x++)
                 {
@@ -58,7 +58,7 @@ namespace Escape_Room
                 Console.WriteLine();
             }
 
-            Console.SetCursorPosition(Lobby.sideBorderToRoom, roomHeight + Lobby.topBorderToRoom - 1);
+            Console.SetCursorPosition(Lobby.SideBorderToRoom, roomHeight + Lobby.TopBorderToRoom - 1);
 
             for (int x = 0; x < roomLength; x++)
                 Console.Write(room[x, roomHeight - 1 ]);

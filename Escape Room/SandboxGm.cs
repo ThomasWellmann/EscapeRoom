@@ -13,51 +13,49 @@ namespace Escape_Room
             Lobby.SetColorsToDefault();
             Console.Clear();
 
-            Console.SetCursorPosition(Lobby.sideBorder, Lobby.topBorder);
+            Console.SetCursorPosition(Lobby.SideBorder, Lobby.TopBorder);
             Console.Write($"Sandbox: You can customize the room with the size of your liking.\n" +
-                $"{Lobby.textBorder}The smallest room you can have is ");
-            Lobby.PrintWithColor("10", Lobby.sizeColor);
+                $"{Lobby.TextBorder}The smallest room you can have is ");
+            Lobby.PrintWithColor("10", Lobby.SizeColor);
             Console.Write('x');
-            Lobby.PrintWithColor("10", Lobby.sizeColor);
+            Lobby.PrintWithColor("10", Lobby.SizeColor);
             Console.Write(", and the bigest ");
-            Lobby.PrintWithColor("30", Lobby.sizeColor);
+            Lobby.PrintWithColor("30", Lobby.SizeColor);
             Console.Write('x');
-            Lobby.PrintWithColor("30", Lobby.sizeColor);
+            Lobby.PrintWithColor("30", Lobby.SizeColor);
             Console.Write(".\n" +
-                $"{Lobby.textBorder}The room is now ");
-            Lobby.PrintWithColor($"{Room.roomLength / 2 - 1}", Lobby.sizeColor);
+                $"{Lobby.TextBorder}The room is now ");
+            Lobby.PrintWithColor($"{Room.roomLength / 2 - 1}", Lobby.SizeColor);
             Console.Write('x');
-            Lobby.PrintWithColor($"{Room.roomHeight - 2}", Lobby.sizeColor);
+            Lobby.PrintWithColor($"{Room.roomHeight - 2}", Lobby.SizeColor);
             Console.Write(":\n");
 
             Room.PrintRoom();
 
-            Console.SetCursorPosition(Lobby.sideBorder, Lobby.windowHight - 12);
+            Console.SetCursorPosition(Lobby.SideBorder, Lobby.WindowHight - 12);
             Console.Write("Press ");
-            Lobby.PrintWithColor("Enter", Lobby.inputColor);
+            Lobby.PrintWithColor("Enter", Lobby.InputColor);
             Console.Write(" to start/end the value input and ");
-            Lobby.PrintWithColor("SpaceBar", Lobby.inputColor);
+            Lobby.PrintWithColor("SpaceBar", Lobby.InputColor);
             Console.Write(" to start the game.");
 
-            Console.SetCursorPosition(Lobby.sideBorder, Lobby.windowHight - 8);
+            Console.SetCursorPosition(Lobby.SideBorder, Lobby.WindowHight - 8);
             Console.Write("Type first it's length ");
-            Lobby.PrintWithColor("x", Lobby.sizeColor);
+            Lobby.PrintWithColor("x", Lobby.SizeColor);
             Console.Write(", than it's height ");
-            Lobby.PrintWithColor("y", Lobby.sizeColor);
+            Lobby.PrintWithColor("y", Lobby.SizeColor);
             Console.Write(".\n" +
-                $"{Lobby.textBorder}Example: \"10x20\" (10 is here the ");
-            Lobby.PrintWithColor("x", Lobby.sizeColor);
+                $"{Lobby.TextBorder}Example: \"10x20\" (10 is here the ");
+            Lobby.PrintWithColor("x", Lobby.SizeColor);
             Console.Write(" value and 20 the ");
-            Lobby.PrintWithColor("y", Lobby.sizeColor);
+            Lobby.PrintWithColor("y", Lobby.SizeColor);
             Console.Write(" one).");
-
-            //press space to start
 
             Lobby.PrintBackground(ConsoleColor.Gray);
 
             GetInputInfo();
 
-            Lobby.ResizeWindow(90, Lobby.windowHight + 4);
+            Lobby.ResizeWindow(90, Lobby.WindowHight + 4);
             Console.Beep();
             GamePage.StartGame(); // Nächste Seite
         }
@@ -66,10 +64,10 @@ namespace Escape_Room
         {
             while (true)
             {
-                Console.SetCursorPosition(Lobby.sideBorder, Lobby.windowHight - 10);
+                Console.SetCursorPosition(Lobby.SideBorder, Lobby.WindowHight - 10);
                 Console.BackgroundColor = ConsoleColor.Gray;
                 Console.Write("       ");
-                Console.SetCursorPosition(Lobby.sideBorder + 3, Lobby.windowHight - 10);
+                Console.SetCursorPosition(Lobby.SideBorder + 3, Lobby.WindowHight - 10);
                 Console.Write('x');
 
                 ConsoleKeyInfo key = Console.ReadKey(true);
@@ -95,7 +93,7 @@ namespace Escape_Room
         {
             string input = "";
 
-            Console.SetCursorPosition(Lobby.sideBorder + 1, Lobby.windowHight - 10);
+            Console.SetCursorPosition(Lobby.SideBorder + 1, Lobby.WindowHight - 10);
 
             while (true)
             {
@@ -119,9 +117,9 @@ namespace Escape_Room
                     else
                         input = input.Remove(input.Length - 1);
 
-                    Console.SetCursorPosition(Lobby.sideBorder + 1 + input.Length, Lobby.windowHight - 10);
+                    Console.SetCursorPosition(Lobby.SideBorder + 1 + input.Length, Lobby.WindowHight - 10);
                     Console.Write(' ');
-                    Console.SetCursorPosition(Lobby.sideBorder + 1 + input.Length, Lobby.windowHight - 10);
+                    Console.SetCursorPosition(Lobby.SideBorder + 1 + input.Length, Lobby.WindowHight - 10);
                 }
                 else if (input.Length == 5 && key.Key == ConsoleKey.Enter) // Eingabe bestätigen, Raumgröße änderen
                 {

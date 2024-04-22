@@ -10,19 +10,19 @@ namespace Escape_Room
         // Nummern an Kommentare nach Console.Write() is die Anzahl von Charakteren 
         #region Variabeln
         static bool onLobby = true;
-        public static int windowLength;
-        public static int windowHight;
-        public static int topBorder = 4;
-        public static int topBorderToRoom = 11;
-        public static int sideBorder = 8;
-        public static int sideBorderToRoom = windowLength / 2 - Room.roomLength / 2;
-        public static int gamemode;
+        public static int WindowLength;
+        public static int WindowHight;
+        public static int TopBorder = 4;
+        public static int TopBorderToRoom = 11;
+        public static int SideBorder = 8;
+        public static int SideBorderToRoom = WindowLength / 2 - Room.roomLength / 2;
+        public static int Gamemode;
         static ConsoleColor titelColor = ConsoleColor.Black;
-        public static ConsoleColor defaultBColor = ConsoleColor.White;
-        public static ConsoleColor defaultFColor = ConsoleColor.Black;
-        public static ConsoleColor inputColor = ConsoleColor.DarkGreen;
-        public static ConsoleColor sizeColor = ConsoleColor.DarkYellow;
-        public static string textBorder = @"
+        static ConsoleColor defaultBColor = ConsoleColor.White;
+        static ConsoleColor defaultFColor = ConsoleColor.Black;
+        public static ConsoleColor InputColor = ConsoleColor.DarkGreen;
+        public static ConsoleColor SizeColor = ConsoleColor.DarkYellow;
+        public static string TextBorder = @"
         ";
         static int times;
         static char[] loading = {'|', '/', '-', '\\'};
@@ -61,9 +61,9 @@ namespace Escape_Room
             PrintGameText(gameTitel, 0, 1);
             PrintBackground(ConsoleColor.Gray);
 
-            Console.SetCursorPosition(windowLength / 2 - 14, 20);
+            Console.SetCursorPosition(WindowLength / 2 - 14, 20);
             Console.Write("Press any "); //10
-            PrintWithColor("key", inputColor); //3
+            PrintWithColor("key", InputColor); //3
             Console.Write(" to get started."); //16
 
             Console.ReadKey(true);
@@ -83,13 +83,13 @@ namespace Escape_Room
             Room.ResizeRoom(22, 12);
             Console.CursorVisible = false;
 
-            if (gamemode == 0)
+            if (Gamemode == 0)
             {
 
                 ResizeWindow(90, 33);
                 DefaultGm.PrintDefaultGmPage();
             }
-            else if (gamemode == 1)
+            else if (Gamemode == 1)
             {
                 ResizeWindow(90, 37);
                 SandboxGm.PrintSandboxGmPage();
@@ -99,9 +99,9 @@ namespace Escape_Room
 
         public static void ResizeWindow(int _length, int _height)
         {
-            windowLength = _length; 
-            windowHight = _height;
-            Console.SetWindowSize(windowLength, windowHight);
+            WindowLength = _length; 
+            WindowHight = _height;
+            Console.SetWindowSize(WindowLength, WindowHight);
         }
 
         static void GetGamemode(int _gm) // Input an Stertseite für Spielmodus
@@ -115,14 +115,14 @@ namespace Escape_Room
                 {
                     PrintGamemode(1);
                     _gm = 1;
-                    gamemode = 1;
+                    Gamemode = 1;
                     continue;
                 }
                 else if (key.Key == ConsoleKey.LeftArrow && _gm == 1)
                 {
                     PrintGamemode(0);
                     _gm = 0;
-                    gamemode = 0;
+                    Gamemode = 0;
                     continue;
                 }
                 else if (key.Key == ConsoleKey.Spacebar || key.Key == ConsoleKey.Enter)
@@ -140,7 +140,7 @@ namespace Escape_Room
             ConsoleColor gm1FColor;
             if (_gm == 0)
             {
-                gamemode = 0;
+                Gamemode = 0;
                 gm0BColor = ConsoleColor.DarkGray;
                 gm0FColor = ConsoleColor.White;
                 gm1BColor = ConsoleColor.Gray;
@@ -148,7 +148,7 @@ namespace Escape_Room
             }
             else
             {
-                gamemode = 1;
+                Gamemode = 1;
                 gm0BColor = ConsoleColor.Gray;
                 gm0FColor = ConsoleColor.Black;
                 gm1BColor = ConsoleColor.DarkGray;
@@ -159,10 +159,10 @@ namespace Escape_Room
             Console.ForegroundColor = gm0FColor;
             for (int y = 0; y < 3; y++)
             {
-                Console.SetCursorPosition(windowLength / 4, 22 + y);
+                Console.SetCursorPosition(WindowLength / 4, 22 + y);
                 Console.Write("           "); //11
             }
-            Console.SetCursorPosition(windowLength / 4 + 2, 23);
+            Console.SetCursorPosition(WindowLength / 4 + 2, 23);
             Console.Write("Default"); //7
 
 
@@ -170,18 +170,18 @@ namespace Escape_Room
             Console.ForegroundColor = gm1FColor;
             for (int y = 0; y < 3; y++)
             {
-                Console.SetCursorPosition(windowLength / 4 * 3 - 9, 22 + y);
+                Console.SetCursorPosition(WindowLength / 4 * 3 - 9, 22 + y);
                 Console.Write("           "); //11
             }
-            Console.SetCursorPosition(windowLength / 4 * 3 - 7, 23);
+            Console.SetCursorPosition(WindowLength / 4 * 3 - 7, 23);
             Console.Write("Sandbox"); //7
 
             SetColorsToDefault();
-            Console.SetCursorPosition(windowLength / 2 - 24, 20);
+            Console.SetCursorPosition(WindowLength / 2 - 24, 20);
             Console.Write("Use "); //4
-            PrintWithColor("RightArrow", inputColor); //10
+            PrintWithColor("RightArrow", InputColor); //10
             Console.Write(" or "); //4
-            PrintWithColor("LeftArrow", inputColor); //9
+            PrintWithColor("LeftArrow", InputColor); //9
             Console.Write(" to switch gamemode."); //20
         }
 
@@ -198,7 +198,7 @@ namespace Escape_Room
                     Console.Beep();
                     if (onLobby)
                     {
-                        Console.SetCursorPosition(windowLength / 2, 22);
+                        Console.SetCursorPosition(WindowLength / 2, 22);
                         Console.Write(loading[i]);
                     }
                     Thread.Sleep(250);
@@ -267,7 +267,7 @@ namespace Escape_Room
                 //top
                 for (int i = 1; i < 3; i++)
                 {
-                    for (int x = 0; x < windowLength - 6; x += 4)
+                    for (int x = 0; x < WindowLength - 6; x += 4)
                     {
                         Console.SetCursorPosition(x + i * 2, i);
                         Console.Write("██");
@@ -276,7 +276,7 @@ namespace Escape_Room
                 //left
                 for (int i = 1; i < 3; i++)
                 {
-                    for (int y = 0; y < windowHight - 4; y += 2)
+                    for (int y = 0; y < WindowHight - 4; y += 2)
                     {
                         Console.SetCursorPosition(i * 2, y + i);
                         Console.Write("██");
@@ -285,48 +285,48 @@ namespace Escape_Room
                 //right
                 for (int i = 1; i < 3; i++)
                 {
-                    for (int y = 0; y < windowHight - 3; y += 2)
+                    for (int y = 0; y < WindowHight - 3; y += 2)
                     {
-                        Console.SetCursorPosition(windowLength - 2 - i * 2, y + i);
+                        Console.SetCursorPosition(WindowLength - 2 - i * 2, y + i);
                         Console.Write("██");
                     }
                 }
                 //bottom
                 for (int i = 1; i < 3; i++)
                 {
-                    for (int x = 2; x < windowLength - 6; x += 4)
+                    for (int x = 2; x < WindowLength - 6; x += 4)
                     {
-                        Console.SetCursorPosition(x + i * 2 - 2, windowHight - 1 - i);
+                        Console.SetCursorPosition(x + i * 2 - 2, WindowHight - 1 - i);
                         Console.Write("██");
                     }
                 }
-                Console.SetCursorPosition(windowLength - 4, windowHight - 2);
+                Console.SetCursorPosition(WindowLength - 4, WindowHight - 2);
                 Console.Write("██");
             }
             else
             {
                 //top
-                for (int x = 0; x < windowLength; x += 4)
+                for (int x = 0; x < WindowLength; x += 4)
                 {
                     Console.SetCursorPosition(x, 0);
                     Console.Write("▀▀");
                 }
                 //bottom
-                for (int x = 0; x < windowLength; x += 4)
+                for (int x = 0; x < WindowLength; x += 4)
                 {
-                    Console.SetCursorPosition(x, windowHight - 1);
+                    Console.SetCursorPosition(x, WindowHight - 1);
                     Console.Write("▄▄");
                 } 
                 //left
-                for (int y = 0; y < windowHight; y += 2)
+                for (int y = 0; y < WindowHight; y += 2)
                 {
                     Console.SetCursorPosition(0, y);
                     Console.Write("█");
                 }
                 //right
-                for (int y = 0; y < windowHight; y += 2)
+                for (int y = 0; y < WindowHight; y += 2)
                 {
-                    Console.SetCursorPosition(windowLength - 1, y);
+                    Console.SetCursorPosition(WindowLength - 1, y);
                     Console.Write("█");
                 }
             }

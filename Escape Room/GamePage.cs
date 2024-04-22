@@ -22,8 +22,8 @@ namespace Escape_Room
         static bool doorPrinted;
         static bool gotKey = false;
         static bool hasEnded = false;
-        public static ConsoleColor playerColor;
-        public static ConsoleColor keyColor = ConsoleColor.DarkMagenta;
+        public static ConsoleColor PlayerColor;
+        public static ConsoleColor KeyColor = ConsoleColor.DarkMagenta;
         static string youWon = @"
                                                      
                                                     
@@ -51,7 +51,7 @@ namespace Escape_Room
             gotKey = false;
             doorPrinted = false;
             gotKey = false;
-            playerColor = ConsoleColor.Blue;
+            PlayerColor = ConsoleColor.Blue;
             keyChar = '?';
 
             Random RndNum = new Random();
@@ -103,29 +103,29 @@ namespace Escape_Room
 
         static void PrintGamePage() // Print Spielseite Texte
         {
-            Console.SetCursorPosition(Lobby.sideBorder, Lobby.topBorder);
+            Console.SetCursorPosition(Lobby.SideBorder, Lobby.TopBorder);
             Console.WriteLine("The game has started!");
-            Console.Write($"{Lobby.textBorder}Use ");
-            Lobby.PrintWithColor("UpArrow", Lobby.inputColor);
+            Console.Write($"{Lobby.TextBorder}Use ");
+            Lobby.PrintWithColor("UpArrow", Lobby.InputColor);
             Console.Write(", ");
-            Lobby.PrintWithColor("DownArrow", Lobby.inputColor);
+            Lobby.PrintWithColor("DownArrow", Lobby.InputColor);
             Console.Write(", ");
-            Lobby.PrintWithColor("RightArrow", Lobby.inputColor);
+            Lobby.PrintWithColor("RightArrow", Lobby.InputColor);
             Console.Write(" or ");
-            Lobby.PrintWithColor("LeftArrow", Lobby.inputColor);
-            Console.Write($" to move around.{Lobby.textBorder}Your Objective is to get the ");
-            Lobby.PrintWithColor("Key", keyColor);
+            Lobby.PrintWithColor("LeftArrow", Lobby.InputColor);
+            Console.Write($" to move around.{Lobby.TextBorder}Your Objective is to get the ");
+            Lobby.PrintWithColor("Key", KeyColor);
             Console.Write(" and exit the room through the door.");
-            Console.Write($"{Lobby.textBorder}The door will open once you get the ");
-            Lobby.PrintWithColor("Key", keyColor);
+            Console.Write($"{Lobby.TextBorder}The door will open once you get the ");
+            Lobby.PrintWithColor("Key", KeyColor);
             Console.Write(".");
 
-            Console.SetCursorPosition(Lobby.windowLength - 32, Lobby.windowHight - 14);
+            Console.SetCursorPosition(Lobby.WindowLength - 32, Lobby.WindowHight - 14);
             Console.Write("Press ");//6
-            Lobby.PrintWithColor("Escape", Lobby.inputColor);//6
+            Lobby.PrintWithColor("Escape", Lobby.InputColor);//6
             Console.Write(" to go back.");//12
 
-            Console.SetCursorPosition(0, Lobby.windowHight - 13);
+            Console.SetCursorPosition(0, Lobby.WindowHight - 13);
             Console.Write(escape);
         }
 
@@ -139,13 +139,13 @@ namespace Escape_Room
                 case ConsoleKey.UpArrow:
                     if (yPlayer > 1)
                     {
-                        Console.SetCursorPosition(xPlayer + Lobby.sideBorderToRoom, yPlayer + Lobby.topBorderToRoom);
+                        Console.SetCursorPosition(xPlayer + Lobby.SideBorderToRoom, yPlayer + Lobby.TopBorderToRoom);
                         Console.Write("  ");
                         yPlayer -= 1;
                     } 
                     else if (gotKey && doorSide == 1 && (xPlayer == xDoor || xPlayer == xDoor + 2))
                     {
-                        Console.SetCursorPosition(xPlayer + Lobby.sideBorderToRoom, yPlayer + Lobby.topBorderToRoom);
+                        Console.SetCursorPosition(xPlayer + Lobby.SideBorderToRoom, yPlayer + Lobby.TopBorderToRoom);
                         Console.Write("  ");
                         yPlayer -= 2;
                         hasEnded = true;
@@ -155,13 +155,13 @@ namespace Escape_Room
                 case ConsoleKey.DownArrow:
                     if (yPlayer < Room.roomHeight - 2)
                     {
-                        Console.SetCursorPosition(xPlayer + Lobby.sideBorderToRoom, yPlayer + Lobby.topBorderToRoom);
+                        Console.SetCursorPosition(xPlayer + Lobby.SideBorderToRoom, yPlayer + Lobby.TopBorderToRoom);
                         Console.Write("  ");
                         yPlayer += 1;
                     }
                     else if (gotKey && doorSide == 3 && (xPlayer == xDoor || xPlayer == xDoor + 2))
                     {
-                        Console.SetCursorPosition(xPlayer + Lobby.sideBorderToRoom, yPlayer + Lobby.topBorderToRoom);
+                        Console.SetCursorPosition(xPlayer + Lobby.SideBorderToRoom, yPlayer + Lobby.TopBorderToRoom);
                         Console.Write("  ");
                         yPlayer += 2;
                         hasEnded = true;
@@ -171,13 +171,13 @@ namespace Escape_Room
                 case ConsoleKey.LeftArrow:
                     if (xPlayer > 2)
                     {
-                        Console.SetCursorPosition(xPlayer + Lobby.sideBorderToRoom, yPlayer + Lobby.topBorderToRoom);
+                        Console.SetCursorPosition(xPlayer + Lobby.SideBorderToRoom, yPlayer + Lobby.TopBorderToRoom);
                         Console.Write("  ");
                         xPlayer -= 2;
                     }
                     else if (gotKey && doorSide == 4 && (yPlayer == yDoor || yPlayer == yDoor + 1))
                     {
-                        Console.SetCursorPosition(xPlayer + Lobby.sideBorderToRoom, yPlayer + Lobby.topBorderToRoom);
+                        Console.SetCursorPosition(xPlayer + Lobby.SideBorderToRoom, yPlayer + Lobby.TopBorderToRoom);
                         Console.Write("  ");
                         xPlayer -= 4;
                         hasEnded = true;
@@ -187,13 +187,13 @@ namespace Escape_Room
                 case ConsoleKey.RightArrow:
                     if (xPlayer < Room.roomLength - 3)
                     {
-                        Console.SetCursorPosition(xPlayer + Lobby.sideBorderToRoom, yPlayer + Lobby.topBorderToRoom);
+                        Console.SetCursorPosition(xPlayer + Lobby.SideBorderToRoom, yPlayer + Lobby.TopBorderToRoom);
                         Console.Write("  ");
                         xPlayer += 2;
                     }
                     else if (gotKey && doorSide == 2 && (yPlayer == yDoor || yPlayer == yDoor + 1))
                     {
-                        Console.SetCursorPosition(xPlayer + Lobby.sideBorderToRoom, yPlayer + Lobby.topBorderToRoom);
+                        Console.SetCursorPosition(xPlayer + Lobby.SideBorderToRoom, yPlayer + Lobby.TopBorderToRoom);
                         Console.Write("  ");
                         xPlayer += 4;
                         hasEnded = true;
@@ -211,17 +211,17 @@ namespace Escape_Room
         static void PrintGameElements() //Print Spieler und Schlüssel
         {
             Console.BackgroundColor = ConsoleColor.Gray;
-            Console.ForegroundColor = keyColor;
-            Console.SetCursorPosition(xKey + Lobby.sideBorderToRoom, yKey + Lobby.topBorderToRoom);
+            Console.ForegroundColor = KeyColor;
+            Console.SetCursorPosition(xKey + Lobby.SideBorderToRoom, yKey + Lobby.TopBorderToRoom);
             Console.Write(keyChar);
-            Console.ForegroundColor = playerColor;
-            Console.SetCursorPosition(xPlayer + Lobby.sideBorderToRoom, yPlayer + Lobby.topBorderToRoom);
+            Console.ForegroundColor = PlayerColor;
+            Console.SetCursorPosition(xPlayer + Lobby.SideBorderToRoom, yPlayer + Lobby.TopBorderToRoom);
             Console.Write(player);
             Lobby.SetColorsToDefault();
 
-            Console.SetCursorPosition(Lobby.sideBorder, Lobby.windowHight - 14);
+            Console.SetCursorPosition(Lobby.SideBorder, Lobby.WindowHight - 14);
             Console.Write($"Player position:");
-            Console.SetCursorPosition(Lobby.sideBorder, Lobby.windowHight - 13);
+            Console.SetCursorPosition(Lobby.SideBorder, Lobby.WindowHight - 13);
             Console.Write($"X: {xPlayer / 2 + 1} | Y: {Room.roomHeight - yPlayer - 1}           ");
 
             Lobby.PrintBackground(ConsoleColor.Gray);
@@ -232,22 +232,22 @@ namespace Escape_Room
             if ((xPlayer == xKey || xPlayer == xKey - 1) && yPlayer == yKey && !gotKey)
             {
                 gotKey = true;
-                playerColor = ConsoleColor.DarkMagenta;
-                Console.ForegroundColor = playerColor; 
-                Console.SetCursorPosition(xPlayer + Lobby.sideBorderToRoom, yPlayer + Lobby.topBorderToRoom);
+                PlayerColor = ConsoleColor.DarkMagenta;
+                Console.ForegroundColor = PlayerColor; 
+                Console.SetCursorPosition(xPlayer + Lobby.SideBorderToRoom, yPlayer + Lobby.TopBorderToRoom);
                 Console.Write(player);
                 keyChar = ' ';
 
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.Beep();
-                Console.SetCursorPosition(Lobby.windowLength / 2 - 8, Lobby.windowHight - 14);
+                Console.SetCursorPosition(Lobby.WindowLength / 2 - 8, Lobby.WindowHight - 14);
                 Console.Write("You got the ");//12
-                Lobby.PrintWithColor("Key", keyColor);//3
+                Lobby.PrintWithColor("Key", KeyColor);//3
                 Console.Write("!");//1
 
                 if (!doorPrinted)
                 {
-                    Console.SetCursorPosition(xDoor + Lobby.sideBorderToRoom, yDoor + Lobby.topBorderToRoom);
+                    Console.SetCursorPosition(xDoor + Lobby.SideBorderToRoom, yDoor + Lobby.TopBorderToRoom);
                     if (doorSide == 1 || doorSide == 3)
                     {
                         Console.Write("    ");
@@ -255,7 +255,7 @@ namespace Escape_Room
                     else if (doorSide == 2 || doorSide == 4)
                     {
                         Console.Write(' ');
-                        Console.SetCursorPosition(xDoor + Lobby.sideBorderToRoom, yDoor + Lobby.topBorderToRoom + 1);
+                        Console.SetCursorPosition(xDoor + Lobby.SideBorderToRoom, yDoor + Lobby.TopBorderToRoom + 1);
                         Console.Write(' ');
                     }
                     doorPrinted = true;
@@ -277,7 +277,7 @@ namespace Escape_Room
         {
             if (hasEnded)
             {
-                Lobby.ColorChangeAnimation(youWon, 0, Lobby.windowHight - 13);
+                Lobby.ColorChangeAnimation(youWon, 0, Lobby.WindowHight - 13);
 
                 while (true)
                 {
