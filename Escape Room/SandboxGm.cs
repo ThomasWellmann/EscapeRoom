@@ -35,7 +35,9 @@ namespace Escape_Room
             Console.SetCursorPosition(Lobby.sideBorder, Lobby.windowHight - 12);
             Console.Write("Press ");
             Lobby.PrintWithColor("Enter", Lobby.inputColor);
-            Console.Write(" to start and end the value imput.");
+            Console.Write(" to start/end the value input and ");
+            Lobby.PrintWithColor("SpaceBar", Lobby.inputColor);
+            Console.Write(" to start the game.");
 
             Console.SetCursorPosition(Lobby.sideBorder, Lobby.windowHight - 8);
             Console.Write("Type first it's length ");
@@ -48,6 +50,8 @@ namespace Escape_Room
             Console.Write(" value and 20 the ");
             Lobby.PrintWithColor("y", Lobby.sizeColor);
             Console.Write(" one).");
+
+            //press space to start
 
             Lobby.PrintBackground(ConsoleColor.Gray);
 

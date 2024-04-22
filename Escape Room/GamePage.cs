@@ -12,13 +12,13 @@ namespace Escape_Room
         #region Variabeln
         static char keyChar = '?';
         static string player = "██";
-        public static int xPlayer;
-        public static int yPlayer;
+        static int xPlayer;
+        static int yPlayer;
         static int xKey;
         static int yKey;
-        public static int doorSide;
-        public static int xDoor;
-        public static int yDoor;
+        static int doorSide;
+        static int xDoor;
+        static int yDoor;
         static bool doorPrinted;
         static bool gotKey = false;
         static bool hasEnded = false;
@@ -113,7 +113,7 @@ namespace Escape_Room
             Lobby.PrintWithColor("RightArrow", Lobby.inputColor);
             Console.Write(" or ");
             Lobby.PrintWithColor("LeftArrow", Lobby.inputColor);
-            Console.Write($" to move arround.{Lobby.textBorder}Your Objective is to get the ");
+            Console.Write($" to move around.{Lobby.textBorder}Your Objective is to get the ");
             Lobby.PrintWithColor("Key", keyColor);
             Console.Write(" and exit the room through the door.");
             Console.Write($"{Lobby.textBorder}The door will open once you get the ");
@@ -283,8 +283,8 @@ namespace Escape_Room
                 {
                     Lobby.PrintBackground(ConsoleColor.Gray);
 
-                    ConsoleKeyInfo keyImput = Console.ReadKey(true);
-                    if (keyImput.Key == ConsoleKey.Escape)
+                    ConsoleKeyInfo keyInput = Console.ReadKey(true);
+                    if (keyInput.Key == ConsoleKey.Escape)
                     {
                         GoBack();
                     }
