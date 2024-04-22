@@ -102,7 +102,7 @@ namespace Escape_Room
                     Console.CursorVisible = false;
                     break;
                 }
-                else if (((Char.IsDigit(key.KeyChar) == true) || (input.Length == 2 && key.KeyChar == 'x')) && input.Length < 5) // Input muss Zahl sein
+                else if (((Char.IsDigit(key.KeyChar) == true) || (input.Length == 2 && key.KeyChar == 'x')) && input.Length < 5) // Input muss Zahl sein ("Char.IsDigit" Geralwie's Idee)
                 {
                     input += key.KeyChar;
                     Console.Write(key.KeyChar);
