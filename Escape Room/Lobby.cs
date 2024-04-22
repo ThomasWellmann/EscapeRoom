@@ -8,7 +8,7 @@ namespace Escape_Room
     internal class Lobby
     {
         // Nummern an Kommentare nach Console.Write() is die Anzahl von Charakteren 
-        
+        #region Variabeln
         static bool onLobby = true;
         public static int windowLength;
         public static int windowHight;
@@ -43,7 +43,7 @@ namespace Escape_Room
             |______|___/\___\__,_| .__/ \___| |_|  \_\___/ \___/|_| |_| |_(_)
                                  | |                                         
                                  |_|";
-        
+        #endregion
 
         static void Main(string[] args)
         {
@@ -185,7 +185,7 @@ namespace Escape_Room
             Console.Write(" to switch gamemode."); //20
         }
 
-
+        #region Extras
         public static void ColorChangeAnimation(string _gameText, int _x, int _y) // Background + Texte Farbeänderung
         {
             Console.CursorVisible = false;
@@ -340,4 +340,5 @@ namespace Escape_Room
             Console.BackgroundColor = defaultBColor;
         }
     }
+    #endregion
 }//End version check! |

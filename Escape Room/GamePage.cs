@@ -9,6 +9,7 @@ namespace Escape_Room
 {
     internal class GamePage
     {
+        #region Variabeln
         static char keyChar = '?';
         static string player = "██";
         public static int xPlayer;
@@ -41,6 +42,7 @@ namespace Escape_Room
         |______|___/\___\__,_| .__/ \___|(_)
                              | |                                         
                              |_|";
+        #endregion
 
         public static void StartGame() // Diese Seite
         {
