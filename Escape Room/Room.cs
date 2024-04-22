@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace Escape_Room
 {
     internal class Room
     {
-        public static char[,] room;
+        public static char[,] room = {};
         public static int roomLength = 22;
         public static int roomHeight = 12;
         //█▀▄ Room Wände

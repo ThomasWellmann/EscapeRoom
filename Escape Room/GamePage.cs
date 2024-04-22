@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Escape_Room
 {
@@ -94,7 +90,7 @@ namespace Escape_Room
             GetGameGoing();
         }
 
-        public static void GetGameGoing() // Spiel läuft
+        static void GetGameGoing() // Spiel läuft
         {
             MovePlayer();
             DoPlayerHaveKey();
@@ -120,9 +116,9 @@ namespace Escape_Room
             Lobby.PrintWithColor("Key", KeyColor);
             Console.Write(".");
 
-            Console.SetCursorPosition(Lobby.WindowLength - 32, Lobby.WindowHight - 14);
+            Console.SetCursorPosition(Lobby.WindowLength - 29, Lobby.WindowHight - 14);
             Console.Write("Press ");//6
-            Lobby.PrintWithColor("Escape", Lobby.InputColor);//6
+            Lobby.PrintWithColor("ESC", Lobby.InputColor);//3
             Console.Write(" to go back.");//12
 
             Console.SetCursorPosition(0, Lobby.WindowHight - 13);

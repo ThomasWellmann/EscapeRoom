@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace Escape_Room
 {
@@ -44,7 +40,7 @@ namespace Escape_Room
                 Console.Write($"{Lobby.TextBorder}You are now at the most difficult level.\n" +
                     $"{Lobby.TextBorder}Press ");
                 Lobby.PrintWithColor("DownArrow", Lobby.InputColor);
-                Console.Write(" to decrease the Room's size, and with it the difficulty.\n\n");
+                Console.Write(" to decrease the Room's size, and with it the difficulty.");
             }
 
             Room.PrintRoom();
@@ -54,7 +50,7 @@ namespace Escape_Room
             Lobby.PrintWithColor("SpaceBar", Lobby.InputColor);
             Console.Write(" to start.\n");
             Console.Write($"{Lobby.TextBorder}Press ");
-            Lobby.PrintWithColor("Escape", Lobby.InputColor);
+            Lobby.PrintWithColor("ESC", Lobby.InputColor);
             Console.Write(" to go back.");
             Lobby.PrintBackground(ConsoleColor.Gray);
 

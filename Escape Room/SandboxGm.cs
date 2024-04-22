@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace Escape_Room
 {
@@ -28,7 +24,7 @@ namespace Escape_Room
             Lobby.PrintWithColor($"{Room.roomLength / 2 - 1}", Lobby.SizeColor);
             Console.Write('x');
             Lobby.PrintWithColor($"{Room.roomHeight - 2}", Lobby.SizeColor);
-            Console.Write(":\n");
+            Console.Write(":");
 
             Room.PrintRoom();
 
@@ -60,7 +56,7 @@ namespace Escape_Room
             GamePage.StartGame(); // Nächste Seite
         }
 
-        private static void GetInputInfo() // Input, um Eingabe zu öffnen/Spiel starten
+        static void GetInputInfo() // Input, um Eingabe zu öffnen/Spiel starten
         {
             while (true)
             {
@@ -89,7 +85,7 @@ namespace Escape_Room
             }
         }
 
-        private static void GetRoomSizeInput() // Texteingabe für Raumgröße
+        static void GetRoomSizeInput() // Texteingabe für Raumgröße
         {
             string input = "";
 

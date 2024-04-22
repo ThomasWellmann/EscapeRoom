@@ -1,7 +1,4 @@
-﻿using System.ComponentModel;
-using System.Drawing;
-using System.Net;
-using System.Threading.Tasks;
+﻿
 
 namespace Escape_Room
 {
@@ -132,7 +129,7 @@ namespace Escape_Room
             }
         }
 
-        private static void PrintGamemode(int _gm)
+        static void PrintGamemode(int _gm)
         {
             ConsoleColor gm0BColor;
             ConsoleColor gm0FColor;
@@ -208,7 +205,7 @@ namespace Escape_Room
 
         static int rnd;
         static int currentRnd;
-        private static void PrintGameText(string _gameText, int _x, int _y) // Größe Spieltexte mit Farben
+        static void PrintGameText(string _gameText, int _x, int _y) // Größe Spieltexte mit Farben
         {
             Random RndColor = new Random();
 
