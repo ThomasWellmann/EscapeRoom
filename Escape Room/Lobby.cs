@@ -21,7 +21,6 @@ namespace Escape_Room
         public static ConsoleColor SizeColor = ConsoleColor.DarkYellow;
         public static string TextBorder = @"
         ";
-        static int times;
         static char[] loading = {'|', '/', '-', '\\'};
         static string gameTitel = @"
          __          __  _                            _          _   _          
@@ -52,7 +51,6 @@ namespace Escape_Room
             ResizeWindow(90, 29);
             SetColorsToDefault();
             Console.Clear();
-            times = 0;
             onLobby = true;
             Console.CursorVisible = true;
             PrintGameText(gameTitel, 0, 1);
@@ -63,7 +61,7 @@ namespace Escape_Room
             PrintWithColor("key", InputColor); //3
             Console.Write(" to get started."); //16
 
-            Console.ReadKey(true);
+            Console.ReadKey(false);
 
             GetGamemode(0);
 
