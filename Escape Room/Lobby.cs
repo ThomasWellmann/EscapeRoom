@@ -61,7 +61,7 @@ namespace Escape_Room
             PrintWithColor("key", InputColor); //3
             Console.Write(" to get started."); //16
 
-            Console.ReadKey(false);
+            Console.ReadKey(true);
 
             GetGamemode(0);
 
